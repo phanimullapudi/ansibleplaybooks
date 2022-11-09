@@ -1,0 +1,8 @@
+---
+- name: Install MySQL
+  hosts: all
+  remote_user: ansible
+  become: yes
+
+  roles:
+  - mysql
