@@ -1,0 +1,16 @@
+- name: Create a GCP instance
+  hosts: localhost
+  vars:
+    gcp_project: pulumi-367411
+    gcp_cred_kind: serviceaccount
+  tasks:
+    - name: create a disk mapped from Debian 9 image
+      gcp_compute_disk:
+        name: disk-instance
+        size_gb: 10
+        source_image: projects/debian-cloud/global/images/debian-10-buster-v20221102
+        zone: us-central1-a
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: disk

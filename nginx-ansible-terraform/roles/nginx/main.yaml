@@ -1,0 +1,10 @@
+---
+- name: Ensure nginx is installed
+  apt:
+    name: nginx
+    state: latest
+
+- name: Ensure nginx is running
+  systemd:
+    state: started
+    name: nginx
