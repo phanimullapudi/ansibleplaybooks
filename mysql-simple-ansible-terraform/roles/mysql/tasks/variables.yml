@@ -57,3 +57,8 @@
   set_fact:
     mysql_supports_innodb_large_prefix: "{{ __mysql_supports_innodb_large_prefix }}"
   when: mysql_supports_innodb_large_prefix is not defined
+
+- name: Define adminpackages.
+  set_fact:
+    adminpackages: "{{ __adminpackages | list }}"
+  when: adminpackages is not defined

@@ -19,6 +19,11 @@
     state: present
   register: deb_mysql_install_packages
 
+- name: Ensure Admin packages are installed.
+  apt:
+    name: "{{ adminpackages }}"
+    state: present
+
 # Because Ubuntu starts MySQL as part of the install process, we need to stop
 # mysql and remove the logfiles in case the user set a custom log file size.
 - name: Ensure MySQL is stopped after initial install.
