@@ -1,0 +1,7 @@
+- name: Simple query to check the users in the database
+  community.mysql.mysql_query:
+    login_db: mysql
+    login_user: root
+    login_password: root
+    login_host: localhost
+    query: SELECT * FROM mysql.user limit 10;
